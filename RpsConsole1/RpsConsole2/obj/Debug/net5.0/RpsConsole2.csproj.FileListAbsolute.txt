@@ -1,0 +1,16 @@
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.csproj.AssemblyReference.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.AssemblyInfoInputs.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.AssemblyInfo.cs
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.csproj.CoreCompileInputs.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.exe
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.deps.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.runtimeconfig.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.runtimeconfig.dev.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\bin\Debug\net5.0\RpsConsole2.pdb
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\refint\RpsConsole2.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.pdb
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\RpsConsole2.genruntimeconfig.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\RpsConsole1\RpsConsole2\obj\Debug\net5.0\ref\RpsConsole2.dll
