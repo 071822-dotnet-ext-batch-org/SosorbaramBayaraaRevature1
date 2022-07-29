@@ -12,6 +12,7 @@ namespace StringManipulationChallenge
             *
             */
             //when you call a method, you call it with arguments. The args values are held in a variable.
+<<<<<<< HEAD
         Console.WriteLine("Please, enter a string");
         string userInput1 = Console.ReadLine();
         string stringToUpperResult = StringToUpper(userInput1);
@@ -26,6 +27,8 @@ namespace StringManipulationChallenge
         string userInput3 = Console.ReadLine();
         string usersStringWithWhiteSpaceResult = StringTrim(userInput3);
         Console.WriteLine( usersStringWithWhiteSpaceResult);
+=======
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
 
 
         }
@@ -52,8 +55,12 @@ namespace StringManipulationChallenge
         /// <returns></returns>       
         public static string StringToLower(string usersString)
         {
+<<<<<<< HEAD
             return usersString.ToLower();
             //throw new NotImplementedException("StringToUpper method not implemented.");
+=======
+            throw new NotImplementedException("StringToUpper method not implemented.");
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
         }
 
         /// <summary>
@@ -66,10 +73,14 @@ namespace StringManipulationChallenge
         /// <returns></returns>
         public static string StringTrim(string usersStringWithWhiteSpace)
         {
+<<<<<<< HEAD
            // throw new NotImplementedException("StringTrim method not implemented.");
            string r = StringTrim(usersStringWithWhiteSpace);
            return r;
 
+=======
+            throw new NotImplementedException("StringTrim method not implemented.");
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
         }
 
         /// <summary>
@@ -84,10 +95,14 @@ namespace StringManipulationChallenge
         /// <returns></returns>
         public static string StringSubstring(string x, int firstElement, int lengthOfSubsring)
         {
+<<<<<<< HEAD
            // throw new NotImplementedException("StringSubstring method not implemented.");
             string r = x.Substring(firstElement, lengthOfSubsring);
             return r;
             
+=======
+            throw new NotImplementedException("StringSubstring method not implemented.");
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
         }
 
         /// <summary>
@@ -102,11 +117,15 @@ namespace StringManipulationChallenge
         /// <returns></returns>
         public static int SearchChar(string userInputString, char charUserWants)
         {
+<<<<<<< HEAD
 
             int result = userInputString.IndexOf(charUserWants);
 
             //throw new NotImplementedException("SearchChar method not implemented.");
 
+=======
+            throw new NotImplementedException("SearchChar method not implemented.");
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
         }
 
         /// <summary>
@@ -121,10 +140,14 @@ namespace StringManipulationChallenge
         /// <returns></returns>
         public static string ConcatNames(string fName, string lName)
         {
+<<<<<<< HEAD
            // string r = $"{fName}{lName}"; //way #1
            string r = fName + " "  + lName; //way #2
            return r;
            // throw new NotImplementedException("ConcatNames method not implemented.");
+=======
+            throw new NotImplementedException("ConcatNames method not implemented.");
+>>>>>>> a4f7d58af5d24fff1c842c372ad6a1a93f17bd22
         }
     }//end of program
 }
