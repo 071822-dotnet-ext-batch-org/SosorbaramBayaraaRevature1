@@ -11,9 +11,12 @@ namespace TransportationApplication
             Boats boat = new Boats();
             Trains train = new Trains();
 
-            Console.WriteLine(car);
-            Console.WriteLine(boat);
-            Console.WriteLine(train);
+            Console.WriteLine(car.color, car.numOfDoors);
+            //Console.WriteLine(boat);
+            //Console.WriteLine(train);
+
+
+
         }
     }
 }

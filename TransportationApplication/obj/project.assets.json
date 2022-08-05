@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransoprtationApplication\\TransoprtationApplication.csproj",
-      "projectName": "TransoprtationApplication",
-      "projectPath": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransoprtationApplication\\TransoprtationApplication.csproj",
+      "projectUniqueName": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransportationApplication\\TransportationApplication.csproj",
+      "projectName": "TransportationApplication",
+      "projectPath": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransportationApplication\\TransportationApplication.csproj",
       "packagesPath": "C:\\Users\\samba\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransoprtationApplication\\obj\\",
+      "outputPath": "C:\\Users\\samba\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\TransportationApplication\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\samba\\AppData\\Roaming\\NuGet\\NuGet.Config",

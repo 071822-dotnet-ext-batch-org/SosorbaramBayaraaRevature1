@@ -1,0 +1,16 @@
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.csproj.AssemblyReference.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.AssemblyInfoInputs.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.AssemblyInfo.cs
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.csproj.CoreCompileInputs.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.exe
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.deps.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.runtimeconfig.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.runtimeconfig.dev.json
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\bin\Debug\net5.0\TransportationApplication.pdb
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\refint\TransportationApplication.dll
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.pdb
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\TransportationApplication.genruntimeconfig.cache
+C:\Users\samba\Desktop\Revature\SosorbaramBayaraaRevature1\TransportationApplication\obj\Debug\net5.0\ref\TransportationApplication.dll
