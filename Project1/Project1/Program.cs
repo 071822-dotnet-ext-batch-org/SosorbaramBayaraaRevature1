@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace Project1
 {//namespace
     class Program
@@ -7,6 +8,8 @@ namespace Project1
         static void Main(string[] args)
         {//main
             
+        //Welcome message
+
         //User must sign in. System will distingquish whether the user is a manager or employee by the username
         
         
