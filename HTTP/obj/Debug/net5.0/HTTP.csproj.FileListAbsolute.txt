@@ -1,0 +1,16 @@
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.csproj.AssemblyReference.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.AssemblyInfoInputs.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.AssemblyInfo.cs
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.csproj.CoreCompileInputs.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.exe
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.deps.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.runtimeconfig.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.runtimeconfig.dev.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\bin\Debug\net5.0\HTTP.pdb
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\refint\HTTP.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.pdb
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\HTTP.genruntimeconfig.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\HTTP\obj\Debug\net5.0\ref\HTTP.dll
