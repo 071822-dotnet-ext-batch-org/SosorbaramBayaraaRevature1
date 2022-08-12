@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    public class Employee
+    public class Expenses
     {
         /*
-        - User puts expenses
-        - password
+        -expenses
+        
         */
     }
 }
