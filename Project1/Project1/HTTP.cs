@@ -5,12 +5,8 @@ using System.Threading.Tasks;
 
 namespace Project1
 {
-    public class Login
+    public class HTTP
     {
-        //this class contains
-        /*
-        - Username
-        - password
-        */
+        
     }
 }

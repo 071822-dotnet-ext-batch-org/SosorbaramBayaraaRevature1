@@ -6,7 +6,7 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-             //power to choose to be a manager or employee   
+            //power to choose to be a manager or employee   
             //have an option to create a username and password 
 
             Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
@@ -28,42 +28,30 @@ namespace Project1
 
             password = Console.ReadLine();
 
-            if(true)
+            if(password == "password")
             {
-    
+                Console.WriteLine($"Welcome {username}");
+            
             }
             else
-            Console.WriteLine("Invalid username or password");
-
+            Console.WriteLine("Invalid username or password. Please try again.");
+        
+        
 
         
-        //User must sign in. System will distingquish whether the user is a manager or employee by the username
+        //Create a new username and password
         
         //EMPLOYEE
-        /*
-        Logged in Employee will be able to add  reimbursement. once the reimbursement is added it will be available
-        for Managers to see the PENDING request*/
-        //Logged-in Employee will be able to view past tickects (APPROVED OR DENIED) or Pending tickets
-        //MUST be able to see the updated status
+        // Must be able to login
+        // Must be able to see the past tickets
+        // Must be able to add reimbursment request
 
         //MANAGER
-        //Must be able to veiw all PENDING reimnursement for all employees
-        //IF the request MEETS COMPANY RULES: YES/APPROVE or NO/DENY
-        //Must be able to APPROVE/DENY reimbursement
-        //Must be able to filter request by STATUS
-        
-
-        //STATUSES
-        //PENDING
-        //APPROVED
-        //DENIED
-
-
-
-
-
-
+        // Must be able to login
+        // Must be able to View all reimbursment for all EMPLOYEES
+        // Must be able to filter requists by STATUS
+        // Must be able to approv/deny reimbursments
 
         }//main
-    }//class
-}//namespace
+    }//EoC
+}//EoS
