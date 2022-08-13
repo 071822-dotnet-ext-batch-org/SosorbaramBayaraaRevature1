@@ -7,9 +7,6 @@ namespace Project1
 {
     public class Employee
     {
-        /*
-        - User puts expenses
-        - password
-        */
+        //Employee control
     }
 }

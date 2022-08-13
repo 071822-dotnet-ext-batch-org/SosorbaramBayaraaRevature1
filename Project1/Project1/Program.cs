@@ -6,18 +6,18 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-            //power to choose to be a manager or employee   
-            //have an option to create a username and password 
+           //create instance of a user
+           
+          
 
             Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
 
-
-            string username = "";
-            string password = "";
-
             Console.WriteLine("\n\tPlease enter your username"); //from the user name we can identify is the user is admin or employee
+          
+        
             
-            username = Console.ReadLine();
+          /*  
+          username = Console.ReadLine();
 
 
             Console.WriteLine($"Hi {username} "); //needs to identify whether its Manager or Employee later
@@ -35,7 +35,7 @@ namespace Project1
             }
             else
             Console.WriteLine("Invalid username or password. Please try again.");
-        
+        */
         
 
         
