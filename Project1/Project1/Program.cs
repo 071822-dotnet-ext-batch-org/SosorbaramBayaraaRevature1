@@ -6,8 +6,8 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-           //create instance of a user
-           
+           //create instance of a User class
+           User user = new User();
           
 
             Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
