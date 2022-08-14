@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SosorbaramBayaraaRevature1.Project1
+namespace Project1
 {
     public class User
     {

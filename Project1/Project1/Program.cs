@@ -6,14 +6,19 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-           //create instance of a user
-           
+            while (true)
+            {
+                Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
+                
+                Console.WriteLine("\n\tPlease enter your username"); //from the user name we can identify is the user is admin or employee
+                Console.ReadLine();
           
+            }
+        
+            
 
-            Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
-
-            Console.WriteLine("\n\tPlease enter your username"); //from the user name we can identify is the user is admin or employee
-          
+           //create instance of a User class
+           User user = new User();
         
             
           /*  
