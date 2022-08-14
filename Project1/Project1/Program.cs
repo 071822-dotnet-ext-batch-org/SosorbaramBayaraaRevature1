@@ -6,21 +6,27 @@ namespace Project1
     {
         static void Main(string[] args)
         {
-            while (true)
+            User user = new User();
+
+        Console.WriteLine("**********************************************************************");
+        Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
+        Console.WriteLine("**********************************************************************");
+            
+        //Console.WriteLine("Are you a returning user? Y/N?"); //from the user name we can identify is the user is admin or employee
+        Console.WriteLine("Please enter your username");
+        user.Username = Console.ReadLine();
+
+        Console.WriteLine($"Welcome {user.Username}. Please enter your password");
+        user.Password = Console.ReadLine();
+           
+            while (true) //this loop is beginning of the application
             {
-                Console.WriteLine("\tHello! Welcome to the Employee Expense Reimbursement Application.");
                 
-                Console.WriteLine("\n\tPlease enter your username"); //from the user name we can identify is the user is admin or employee
-                Console.ReadLine();
-          
             }
-        
             
 
            //create instance of a User class
-           User user = new User();
-        
-            
+
           /*  
           username = Console.ReadLine();
 
