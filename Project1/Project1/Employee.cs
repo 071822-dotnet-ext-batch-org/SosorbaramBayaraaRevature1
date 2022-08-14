@@ -7,6 +7,6 @@ namespace Project1
 {
     public class Employee
     {
-        //Employee control
+        //Employee 
     }
 }

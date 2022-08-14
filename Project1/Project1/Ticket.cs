@@ -7,6 +7,15 @@ namespace Project1
 {
     public class Ticket
     {
+        //TicketID
+        //Author
+        //Resolver
+        //Description
+        //Status
+        //Amount
+        public int TicketID { get; set; }
+        
+        
         //A class has Properties, attributes, constructors, and methods (mainly)
 
         //an attribute is a single piece of a data like age, DoB, name, etc
