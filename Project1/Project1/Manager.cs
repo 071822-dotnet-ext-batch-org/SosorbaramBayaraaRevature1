@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 
-namespace Project1
+public class Class1
 {
-    public class Manager
-    {
-        //manager contrtol
-    }
+	public Class1()
+	{
+	}
 }
