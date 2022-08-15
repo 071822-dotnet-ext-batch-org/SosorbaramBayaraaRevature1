@@ -30,6 +30,8 @@ namespace Project1
         private string password;
         private string userID;
 
+        
+
         // methods are sets of consecutive steps that the porogram copletes. the can be called individually
             //getter and setter methods get/set the data while protecting the data
        
