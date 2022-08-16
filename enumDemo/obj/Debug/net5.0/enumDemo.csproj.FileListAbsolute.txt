@@ -1,0 +1,16 @@
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.exe
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.deps.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.runtimeconfig.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.runtimeconfig.dev.json
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\bin\Debug\net5.0\enumDemo.pdb
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.csproj.AssemblyReference.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.AssemblyInfoInputs.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.AssemblyInfo.cs
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.csproj.CoreCompileInputs.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\refint\enumDemo.dll
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.pdb
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\enumDemo.genruntimeconfig.cache
+C:\Users\samba\OneDrive\Desktop\Revature\SosorbaramBayaraaRevature1\enumDemo\obj\Debug\net5.0\ref\enumDemo.dll
