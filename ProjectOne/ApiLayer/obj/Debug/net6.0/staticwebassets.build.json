@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "XpAq+2V5ZhoSpdZJ8P4iVasMrS9EUFrxM0RiiWHeN5E=",
-  "Source": "ReimbursementWebAPI",
-  "BasePath": "_content/ReimbursementWebAPI",
+  "Hash": "aF0gZIf6im1QJjoGXgXJ+cf5Tyz57JtgU8ayoFSMbsE=",
+  "Source": "ProjectOneWebAPI",
+  "BasePath": "_content/ProjectOneWebAPI",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],

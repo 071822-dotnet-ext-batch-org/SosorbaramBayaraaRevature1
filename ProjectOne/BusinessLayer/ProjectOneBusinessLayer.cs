@@ -3,7 +3,7 @@
 namespace BusinessLayer;
 public class ProjectOneBusinessLayer
 {
-    public Task<List<Ticket>> TicketsAsync()
+    public async Task<List<Ticket>> TicketsAsync()
     {
         throw new NotImplementedException();
     }
