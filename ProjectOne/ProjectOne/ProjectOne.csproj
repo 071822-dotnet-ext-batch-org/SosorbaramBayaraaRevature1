@@ -2,7 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj" />
-    <ProjectReference Include="..\Models\Models.csproj" />
+    <ProjectReference Include="..\Models\ModelsLayer.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

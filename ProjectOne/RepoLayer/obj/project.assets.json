@@ -147,14 +147,14 @@
           }
         }
       },
-      "Models/1.0.0": {
+      "ModelsLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/ModelsLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/ModelsLayer.dll": {}
         }
       }
     }
@@ -473,15 +473,15 @@
         "version.txt"
       ]
     },
-    "Models/1.0.0": {
+    "ModelsLayer/1.0.0": {
       "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
+      "path": "../Models/ModelsLayer.csproj",
+      "msbuildProject": "../Models/ModelsLayer.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "Models >= 1.0.0",
+      "ModelsLayer >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -512,8 +512,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj"
+            "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj": {
+              "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj"
             }
           }
         }

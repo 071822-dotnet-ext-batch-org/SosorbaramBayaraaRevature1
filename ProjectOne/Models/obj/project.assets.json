@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj",
-      "projectName": "Models",
-      "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj",
+      "projectUniqueName": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj",
+      "projectName": "ModelsLayer",
+      "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj",
       "packagesPath": "C:\\Users\\samba\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\obj\\",
       "projectStyle": "PackageReference",

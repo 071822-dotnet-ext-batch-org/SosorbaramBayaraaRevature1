@@ -238,7 +238,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Models": "1.0.0",
+          "ModelsLayer": "1.0.0",
           "RepoLayer": "1.0.0"
         },
         "compile": {
@@ -248,21 +248,21 @@
           "bin/placeholder/BusinessLayer.dll": {}
         }
       },
-      "Models/1.0.0": {
+      "ModelsLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/ModelsLayer.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/ModelsLayer.dll": {}
         }
       },
       "RepoLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Models": "1.0.0",
+          "ModelsLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
@@ -718,10 +718,10 @@
       "path": "../BusinessLayer/BusinessLayer.csproj",
       "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
     },
-    "Models/1.0.0": {
+    "ModelsLayer/1.0.0": {
       "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
+      "path": "../Models/ModelsLayer.csproj",
+      "msbuildProject": "../Models/ModelsLayer.csproj"
     },
     "RepoLayer/1.0.0": {
       "type": "project",
@@ -732,7 +732,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "BusinessLayer >= 1.0.0",
-      "Models >= 1.0.0",
+      "ModelsLayer >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -742,9 +742,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\ApiLayer\\ReimbursementWebAPI.csproj",
-      "projectName": "ReimbursementWebAPI",
-      "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\ApiLayer\\ReimbursementWebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\ApiLayer\\ProjectOneWebAPI.csproj",
+      "projectName": "ProjectOneWebAPI",
+      "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\ApiLayer\\ProjectOneWebAPI.csproj",
       "packagesPath": "C:\\Users\\samba\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\ApiLayer\\obj\\",
       "projectStyle": "PackageReference",
@@ -766,8 +766,8 @@
             "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\BusinessLayer\\BusinessLayer.csproj": {
               "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\BusinessLayer\\BusinessLayer.csproj"
             },
-            "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\Models.csproj"
+            "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj": {
+              "projectPath": "C:\\Users\\samba\\OneDrive\\Desktop\\Revature\\SosorbaramBayaraaRevature1\\ProjectOne\\Models\\ModelsLayer.csproj"
             }
           }
         }

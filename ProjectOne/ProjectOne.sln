@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectOne", "ProjectOne\Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{8C263112-ED32-4651-B670-D107D7D3BB58}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{96018182-2D4D-42E3-AE0B-CF458D9EF6B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModelsLayer", "Models\ModelsLayer.csproj", "{96018182-2D4D-42E3-AE0B-CF458D9EF6B1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RepoLayer", "RepoLayer\RepoLayer.csproj", "{0CA7C88B-2297-43C7-BF8B-E2146B9A56E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReimbursementWebAPI", "ApiLayer\ReimbursementWebAPI.csproj", "{EFDA717A-45E4-46F7-AC48-02E1F110FBC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectOneWebAPI", "ApiLayer\ProjectOneWebAPI.csproj", "{EFDA717A-45E4-46F7-AC48-02E1F110FBC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
