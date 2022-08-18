@@ -1,8 +1,17 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\Models"
   ],
   "SelectedNode": "\\Models\\Class1.cs",
+=======
+    "\\BusinessLayer",
+    "\\Models",
+    "\\ProjectOne",
+    "\\RepoLayer"
+  ],
+  "SelectedNode": "\\RepoLayer",
+>>>>>>> 54dd8af96350fd5e80a291254e5b2af98db80639
   "PreviewInSolutionExplorer": false
 }
