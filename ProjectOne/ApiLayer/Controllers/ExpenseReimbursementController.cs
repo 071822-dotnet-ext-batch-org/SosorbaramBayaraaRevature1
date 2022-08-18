@@ -9,7 +9,7 @@ namespace ProjectOneWebAPI.Controllers
     [ApiController]
     public class ExpenseReimbursementController : ControllerBase
     {
-        private readonly ProjectOneBusinessLayer _businessLayer;
+        private readonly ProjectOneBusinessLayer _businessLayer; // "_businessLayer" naming convention for private local variables
         public ExpenseReimbursementController()
         {
             this._businessLayer = new ProjectOneBusinessLayer();
@@ -21,16 +21,16 @@ namespace ProjectOneWebAPI.Controllers
         /// <returns></returns>
 
 
-        [HttpGet("TicketsAsync")]
-        [HttpGet("TicketsAsync/{type}")]
-        [HttpGet("TicketsAsync/{type}{id}")]
+        [HttpGet("TicketsAsync")] //get all rtickets   
+        [HttpGet("TicketsAsync/{type}")] 
+        [HttpGet("TicketsAsync/{type}/{id}")]
         [HttpGet("TicketsAsync/{id}")]
-        public async ActionResult<Task<List<Ticket>>> TicketsAsync(string? type, Guid? id)
+        public async Task<ActionResult<List<Ticket>>> TicketsAsync(string? type, Guid? id)
         {
             if (type.Equals("Pending"))
             {
                 List<Ticket> ticketList = await this._businessLayer.TicketsAsync();
-                return ticketList;
+                return Ok(ticketList); //returns 200
             }
             return null;
 
