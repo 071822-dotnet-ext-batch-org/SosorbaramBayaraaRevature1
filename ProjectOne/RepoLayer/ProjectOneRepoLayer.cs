@@ -10,7 +10,7 @@ namespace RepoLayer;
         {
                // made a connection wusing Sql connection class
             SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM Ticket WHERE Status = @status", conn1)) //created a command using the query and the connection string
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM Tickets WHERE Status = @status", conn1)) //created a command using the query and the connection string,
             {
                 command.Parameters.AddWithValue("@status", status); //I gave parameter to the command
                 conn1.Open();                                   // opening connection
