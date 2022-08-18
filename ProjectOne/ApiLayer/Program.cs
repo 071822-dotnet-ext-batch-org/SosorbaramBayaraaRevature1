@@ -20,6 +20,6 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-ControllerActionEndpointConventionBuilder controllerActionEndpointConventionBuilder = app.MapControllers();
+app.MapControllers();
 
 app.Run();
