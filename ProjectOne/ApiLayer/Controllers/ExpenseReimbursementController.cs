@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BusinessLayer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ModelsLayer;
 
@@ -8,17 +9,31 @@ namespace ProjectOneWebAPI.Controllers
     [ApiController]
     public class ExpenseReimbursementController : ControllerBase
     {
+        private readonly ProjectOneBusinessLayer _businessLayer;
+        public ExpenseReimbursementController()
+        {
+            this._businessLayer = new ProjectOneBusinessLayer();
+        }
+
         /// <summary>
         /// Get all the pending request
         /// </summary>
         /// <returns></returns>
-        [HttpGet("Tickets/{type}")]
-        public async ActionResult<List<Ticket>> PendingTickets(string type)
+
+
+        [HttpGet("TicketsAsync")]
+        [HttpGet("TicketsAsync/{type}")]
+        [HttpGet("TicketsAsync/{type}{id}")]
+        [HttpGet("TicketsAsync/{id}")]
+        public async ActionResult<Task<List<Ticket>>> TicketsAsync(string? type, Guid? id)
         {
-            if (type.Equals("pending"))
+            if (type.Equals("Pending"))
             {
-                List<Ticket>tickets();
+                List<Ticket> ticketList = await this._businessLayer.TicketsAsync();
+                return ticketList;
             }
+            return null;
+
         }
 
     }
