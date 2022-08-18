@@ -8,9 +8,11 @@ namespace ModelsLayer
 {
     public class Ticket
     {
-        public Ticket(Guid ticketID, Guid fK_EmployeeID, string description, double amount, int status)
+      
+
+        public Ticket(Guid ticketID, Guid fK_EmployeeID, string description, decimal amount, int status)
         {
-            TicketID = ticketID;
+            this.TicketID = ticketID;
             FK_EmployeeID = fK_EmployeeID;
             Description = description;
             Amount = amount;
@@ -20,7 +22,7 @@ namespace ModelsLayer
         public Guid TicketID { get; set; }
         public Guid FK_EmployeeID { get; set; }
         public string Description { get; set; }
-        public double Amount { get; set; }
+        public decimal Amount { get; set; }
         public int Status { get; set; }
     }
 }
