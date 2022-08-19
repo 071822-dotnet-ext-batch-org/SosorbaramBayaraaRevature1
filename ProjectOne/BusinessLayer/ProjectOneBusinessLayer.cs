@@ -17,4 +17,14 @@ public class ProjectOneBusinessLayer
         List<Ticket> list = await this._repoLayer.TicketsAsync(status);
         return list;
     }
+
+    public async Task<Ticket> UpdateTicketAsync(ApprovalDto approval)  
+    {
+        if (await this._repoLayer.IsManagerAsync(approval.EmployeeID)) //to see if this employee is a manager, if not its failed
+        {
+            Ticket approvedTicket = await this._repoLayer.UpdateTicketAsync(approval);
+            return approvedTicket;
+        }
+        else return null;
+    }
 }
