@@ -6,11 +6,12 @@ namespace RepoLayer;
 
     public class ProjectOneRepoLayer
     {
-        public async Task<List<Ticket>> TicketsAsync(int status)
+
+    public async Task<List<Ticket>> TicketsAsync(int status)
         {
                // made a connection wusing Sql connection class
             SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            using (SqlCommand command = new SqlCommand($"SELECT * FROM Ticket WHERE Status = @status", conn1)) //created a command using the query and the connection string
+            using (SqlCommand command = new SqlCommand($"SELECT * FROM Tickets WHERE Status = @status", conn1)) //created a command using the query and the connection string,
             {
                 command.Parameters.AddWithValue("@status", status); //I gave parameter to the command
                 conn1.Open();                                   // opening connection
@@ -22,8 +23,33 @@ namespace RepoLayer;
                     Ticket t = new Ticket((Guid)ret[0], (Guid)ret[1], ret.GetString(2), ret.GetDecimal(3), ret.GetInt32(4));
                     tList.Add(t);
                 }
+                conn1.Close();
                 return tList;
             }
         }
-    }  
+
+    public async Task<bool> IsManagerAsync(Guid employeeID)
+             {
+        // made a connection wusing Sql connection class
+             SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+             using (SqlCommand command = new SqlCommand($"SELECT IsManager FROM Employees WHERE EmployeeID = @id", conn1)) //created a command using the query and the connection string,
+             {
+                command.Parameters.AddWithValue("@id", employeeID); //I gave parameter to the command
+                conn1.Open();                                   // opening connection
+                SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)  
+                if (ret.Read() && (ret.GetBoolean(0))) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
+                {
+                    conn1.Close();
+                    return true;
+                }
+                conn1.Close();
+                return false;
+             }
+         }
+
+    public Task<Ticket> UpdateTicketAsync(ApprovalDto approval)
+    {
+        throw new NotImplementedException();
+    }
+}  
 

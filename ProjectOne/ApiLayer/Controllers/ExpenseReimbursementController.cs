@@ -37,5 +37,13 @@ namespace ProjectOneWebAPI.Controllers
 
         }
 
+        [HttpPut("UpdateTicketAsync")]
+        public async Task<ActionResult<Ticket>> ticketStatus(ApprovalDto approval)
+        {
+            //send the ApprovalDto to the business layer
+            Ticket approvedTicket = await this._businessLayer.UpdateTicketAsync(approval);
+            return approvedTicket;
+        }
+
     }
 }
