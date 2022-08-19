@@ -12,9 +12,19 @@ namespace ModelsLayer
         {
             UsernName = userName;
             Password = password;
+            FirstName = firstName;
+            LastName = lastName;
+
         }
+
+        
+   
+      
+
         public string UsernName { get; set; }
         public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }    
 
     }
 }

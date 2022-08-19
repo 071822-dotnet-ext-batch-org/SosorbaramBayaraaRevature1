@@ -36,6 +36,12 @@ namespace ProjectOneWebAPI.Controllers
             //0=pending, 1=Aprroved, 2=Denied
 
         }
+        [HttpGet("LoginAsync")]
+        public async Task<ActionResult<List<LoginDto>>> LoginAsync(string firstName, string lastName, string userName, string password)
+        {
+            List<LoginDto> loginInfo = await this._businessLayer.LoginAsync(firstName, lastName);
+            return Ok(loginInfo);
+        }
 
         [HttpPut("UpdateTicketAsync")]
         public async Task<ActionResult<UpdatedTicketDto>> TicketStatusAsync(ApprovalDto approval) //it waa called Jimmy on Marks demo because "TicketStatus" can be called anything, but keep it consistant

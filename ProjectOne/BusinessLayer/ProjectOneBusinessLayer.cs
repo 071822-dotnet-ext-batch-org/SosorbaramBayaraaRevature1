@@ -15,6 +15,14 @@ public class ProjectOneBusinessLayer
         this._repoLayer = new ProjectOneRepoLayer();
     }
 
+    public async Task<List<LoginDto>> LoginAsync(string firstName, string lastName,string userName, string password)
+    {
+        List<LoginDto> loginInfo = await this._repoLayer.LoginAsync(firstName, lastName);
+        return loginInfo;
+    }
+
+    
+
     public Task<Employee> NewEmployeeAsync()
     {
         throw new NotImplementedException();
