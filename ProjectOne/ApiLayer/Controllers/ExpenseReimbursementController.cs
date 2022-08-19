@@ -38,11 +38,15 @@ namespace ProjectOneWebAPI.Controllers
         }
 
         [HttpPut("UpdateTicketAsync")]
-        public async Task<ActionResult<Ticket>> ticketStatus(ApprovalDto approval)
+        public async Task<ActionResult<UpdatedTicketDto>> TicketStatusAsync(ApprovalDto approval) //it waa called Jimmy on Marks demo because "TicketStatus" can be called anything, but keep it consistant
         {
-            //send the ApprovalDto to the business layer
-            Ticket approvedTicket = await this._businessLayer.UpdateTicketAsync(approval);
-            return approvedTicket;
+            if (ModelState.IsValid) //system will try to match if data is valid, if its not valid it will throw exception. If its valid it will etirate.
+            {
+                UpdatedTicketDto approvedTicket = await this._businessLayer.UpdateTicketAsync(approval);
+                //send the ApprovalDto to the business layer
+                return Ok(approvedTicket);
+            }
+            else return Conflict(approval);    //StatusCode(StatusCodes.Status409Conflict); 
         }
 
     }
