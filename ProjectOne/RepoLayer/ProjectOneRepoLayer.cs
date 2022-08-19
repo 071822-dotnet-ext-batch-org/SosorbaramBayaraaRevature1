@@ -7,6 +7,31 @@ namespace RepoLayer;
 
 public class ProjectOneRepoLayer
 {
+    public async Task<Employee> NewEmployeeAsync(Guid employeeID,string userName, string firstName, string lastName, bool isManager, string pasword)
+    {
+        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        using SqlCommand command = new SqlCommand($"INSERT INTO Employees (employeeID, userName, firstName, lastName, isManager, password) VALUES (@employeeID, @username, @firstname, @lastname, @isManager, @password)", conn1); //created a command using the query and the connection string,
+        {
+            command.Parameters.AddWithValue("@employeeID", employeeID);
+            command.Parameters.AddWithValue("@username", userName); //I gave parameter to the command
+            command.Parameters.AddWithValue("@firstname",firstName);
+            command.Parameters.AddWithValue("@lastname", lastName );
+            command.Parameters.AddWithValue("@isManager", isManager );
+            command.Parameters.AddWithValue("@password", pasword );
+       
+            conn1.Open();                                   // opening connection
+            SqlDataReader? ret = await command.ExecuteReaderAsync();
+            if (ret.Read()) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
+            {
+                Employee e = new Employee(ret.GetGuid(0), ret.GetString(1), ret.GetString(2), ret.GetString(3), ret.GetBoolean(4), ret.GetString(5));
+
+                conn1.Close();
+                return e;
+            }
+            conn1.Close();
+            return null;
+        }
+    }
 
     public async Task<List<Ticket>> TicketsAsync(int status)
     {
@@ -41,7 +66,7 @@ public class ProjectOneRepoLayer
         using (SqlCommand command = new SqlCommand($"UPDATE Tickets SET Status = @status WHERE TicketID = @id", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@id", ticketID); //I gave parameter to the command
-            command.Parameters.AddWithValue("Satus", status);
+            command.Parameters.AddWithValue("@status", status);
             conn1.Open();                                   // opening connection
             int ret = await command.ExecuteNonQueryAsync(); //.ExecuteNonQuery
             if (ret == 1) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
@@ -67,10 +92,9 @@ public class ProjectOneRepoLayer
     private async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
     {
         SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] + " +
-            $"LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,
+        using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,
         {
-            command.Parameters.AddWithValue("@requestID", ticketID); //I gave parameter to the command
+            command.Parameters.AddWithValue("@ticketID", ticketID); //I gave parameter to the command
             conn1.Open();                                   // opening connection
             SqlDataReader? ret = await command.ExecuteReaderAsync(); //Using ? because what if it returns nothing
             if (ret.Read()) 
@@ -101,6 +125,7 @@ public class ProjectOneRepoLayer
                 conn1.Close();
                 return false;
             }
+
         
     }
 }
