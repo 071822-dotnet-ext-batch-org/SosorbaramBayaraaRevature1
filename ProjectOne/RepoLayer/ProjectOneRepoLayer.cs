@@ -41,7 +41,7 @@ public class ProjectOneRepoLayer
         using (SqlCommand command = new SqlCommand($"UPDATE Tickets SET Status = @status WHERE TicketID = @id", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@id", ticketID); //I gave parameter to the command
-            command.Parameters.AddWithValue("Satus", status);
+            command.Parameters.AddWithValue("@status", status);
             conn1.Open();                                   // opening connection
             int ret = await command.ExecuteNonQueryAsync(); //.ExecuteNonQuery
             if (ret == 1) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
@@ -67,10 +67,9 @@ public class ProjectOneRepoLayer
     private async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
     {
         SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] + " +
-            $"LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,
+        using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,
         {
-            command.Parameters.AddWithValue("@requestID", ticketID); //I gave parameter to the command
+            command.Parameters.AddWithValue("@ticketID", ticketID); //I gave parameter to the command
             conn1.Open();                                   // opening connection
             SqlDataReader? ret = await command.ExecuteReaderAsync(); //Using ? because what if it returns nothing
             if (ret.Read()) 
