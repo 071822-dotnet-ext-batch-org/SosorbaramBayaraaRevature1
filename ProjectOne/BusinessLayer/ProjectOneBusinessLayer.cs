@@ -9,24 +9,6 @@ public class ProjectOneBusinessLayer
                                                              // this is a business layer Entity, the instance of the Business layer. Using this to call the method
                                                              //It is using "Private" because it is protecting from calling it from outside this class
                                                              //"Readonly  because it cant be changed
-   
-    public ProjectOneBusinessLayer()
-    {
-        this._repoLayer = new ProjectOneRepoLayer();
-    }
-
-    public async Task<List<LoginDto>> LoginAsync(string firstName, string lastName,string userName, string password)
-    {
-        List<LoginDto> loginInfo = await this._repoLayer.LoginAsync(firstName, lastName);
-        return loginInfo;
-    }
-
-    
-
-    public Task<Employee> NewEmployeeAsync()
-    {
-        throw new NotImplementedException();
-    }
 
     public async Task<List<Ticket>> TicketsAsync(int status)
     {

@@ -7,31 +7,6 @@ namespace RepoLayer;
 
 public class ProjectOneRepoLayer
 {
-    public async Task<Employee> NewEmployeeAsync(Guid employeeID,string userName, string firstName, string lastName, bool isManager, string pasword)
-    {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        using SqlCommand command = new SqlCommand($"INSERT INTO Employees (employeeID, userName, firstName, lastName, isManager, password) VALUES (@employeeID, @username, @firstname, @lastname, @isManager, @password)", conn1); //created a command using the query and the connection string,
-        {
-            command.Parameters.AddWithValue("@employeeID", employeeID);
-            command.Parameters.AddWithValue("@username", userName); //I gave parameter to the command
-            command.Parameters.AddWithValue("@firstname",firstName);
-            command.Parameters.AddWithValue("@lastname", lastName );
-            command.Parameters.AddWithValue("@isManager", isManager );
-            command.Parameters.AddWithValue("@password", pasword );
-       
-            conn1.Open();                                   // opening connection
-            SqlDataReader? ret = await command.ExecuteReaderAsync();
-            if (ret.Read()) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
-            {
-                Employee e = new Employee(ret.GetGuid(0), ret.GetString(1), ret.GetString(2), ret.GetString(3), ret.GetBoolean(4), ret.GetString(5));
-
-                conn1.Close();
-                return e;
-            }
-            conn1.Close();
-            return null;
-        }
-    }
 
     public async Task<List<Ticket>> TicketsAsync(int status)
     {
@@ -129,24 +104,5 @@ public class ProjectOneRepoLayer
         
     }
 
-    public async Task<List<LoginDto>> LoginAsync(string firstName, string lastName, string userName, string password)
-    {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        using (SqlCommand command = new SqlCommand($"SELECT * FROM Employees WHERE FirstName = @fname, LastName = @lname", conn1)) //created a command using the query and the connection string,
-        {
-            command.Parameters.AddWithValue("@", status); //I gave parameter to the command
-            conn1.Open();                                   // opening connection
-            SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)
-            List<Ticket> tList = new List<Ticket>(); //creating list as empty list naming it tList
-
-            while (ret.Read()) //advances to the first row
-            {
-                Ticket t = new Ticket((Guid)ret[0], (Guid)ret[1], ret.GetString(2), ret.GetDecimal(3), ret.GetInt32(4));
-                tList.Add(t);
-            }
-            conn1.Close();
-            return tList;
-        }
-    }
 }
 
