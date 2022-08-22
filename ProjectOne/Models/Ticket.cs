@@ -12,7 +12,7 @@ namespace ModelsLayer
 
         public Ticket(Guid ticketID, Guid fK_EmployeeID, string description, decimal amount, int status)
         {
-            this.TicketID = ticketID;
+            TicketID = ticketID;
             FK_EmployeeID = fK_EmployeeID;
             Description = description;
             Amount = amount;

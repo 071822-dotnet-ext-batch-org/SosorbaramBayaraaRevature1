@@ -13,10 +13,6 @@ namespace ProjectOneWebAPI.Controllers
                                                                  // this is a business layer Entity, the instance of the Business layer. Using this to call the method
                                                                  //It is using "Private" because it is protecting from calling it from outside this class
                                                                  //"Readonly  because it cant be changed
-        public ExpenseReimbursementController()
-        {
-            this._businessLayer = new ProjectOneBusinessLayer();
-        }
 
         /// <summary>
         /// Get all the pending request
@@ -24,7 +20,7 @@ namespace ProjectOneWebAPI.Controllers
         /// <returns></returns>
 
 
-        [HttpGet("TicketsAsync")] //get all rtickets   
+        //get all rtickets   
         [HttpGet("TicketsAsync/{status}")] //get all of a type request
         //.[HttpGet("TicketsAsync/{id?}/{status?}")] //FIGURE OUT HOW TO STRUCTURE THE QUERY SO THAT OTHE OPTIONAL VALUES ARE INDEED OPTIONAL
         //[HttpGet("TicketsAsync/{id}")]
@@ -37,7 +33,7 @@ namespace ProjectOneWebAPI.Controllers
 
         }
 
-        [HttpPut("UpdateTicketAsync")]
+        [HttpPut("Updating Status as a manager")]
         public async Task<ActionResult<UpdatedTicketDto>> TicketStatusAsync(ApprovalDto approval) //it waa called Jimmy on Marks demo because "TicketStatus" can be called anything, but keep it consistant
         {
             if (ModelState.IsValid) //system will try to match if data is valid, if its not valid it will throw exception. If its valid it will etirate.
