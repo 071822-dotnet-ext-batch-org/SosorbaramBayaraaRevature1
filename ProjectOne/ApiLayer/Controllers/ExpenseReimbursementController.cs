@@ -13,15 +13,32 @@ namespace ProjectOneWebAPI.Controllers
                                                                  // this is a business layer Entity, the instance of the Business layer. Using this to call the method
                                                                  //It is using "Private" because it is protecting from calling it from outside this class
                                                                  //"Readonly  because it cant be changed
+        public ExpenseReimbursementController() // making reimbursement business layer
+        {
+            this._businessLayer = new ProjectOneBusinessLayer();
+        }
 
         /// <summary>
-        /// Get all the pending request
+        /// # 1 Login: must be able to login by using username and password 
         /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
         /// <returns></returns>
+        [HttpPost("Login")]
+        public async Task<ActionResult<List<LoginDto>>> LoginAsync(LoginDto login)
+        {
+            if (ModelState.IsValid)
+            {
+                LoginDto loginDto = await this._businessLayer.LoginAsync(login);
+                return Ok(loginDto);
+            }
+            else return Conflict(login);
+            //List<LoginDto> loginList = await this._businessLayer.LoginAsync
+        }
 
 
         //get all rtickets   
-        [HttpGet("TicketsAsync/{status}")] //get all of a type request
+        [HttpGet("Tickets")] //get all of a type request
         //.[HttpGet("TicketsAsync/{id?}/{status?}")] //FIGURE OUT HOW TO STRUCTURE THE QUERY SO THAT OTHE OPTIONAL VALUES ARE INDEED OPTIONAL
         //[HttpGet("TicketsAsync/{id}")]
         public async Task<ActionResult<List<Ticket>>> TicketsAsync(int status, Guid? id)
