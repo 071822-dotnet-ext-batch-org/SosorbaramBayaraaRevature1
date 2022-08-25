@@ -5,6 +5,18 @@ using RepoLayer;
 namespace BusinessLayer;
 public class ProjectOneBusinessLayer
 {
+    // "_businessLayer" naming convention for private local variables. 
+    // this is a business layer Entity, the instance of the Business layer. Using this to call the method
+    //It is using "Private" because it is protecting from calling it from outside this class
+    //"Readonly  because it cant be changed
+
+    private readonly ProjectOneRepoLayer _repoLayer;
+    public  ProjectOneBusinessLayer()
+    {
+        this._repoLayer = new ProjectOneRepoLayer();
+    }
+
+    
     /// <summary>
     /// #1 Login
     /// </summary>
@@ -15,17 +27,16 @@ public class ProjectOneBusinessLayer
         LoginDto list = await this._repoLayer.LoginAsync(loginDto);
         return loginDto;
     }
-    // "_businessLayer" naming convention for private local variables. 
-    private readonly ProjectOneRepoLayer _repoLayer;
-    public  ProjectOneBusinessLayer()
+    /// <summary>
+    /// #2 Register a new account
+    /// </summary>
+    /// <param name="newEmployee"></param>
+    /// <returns></returns>
+    public async Task<Employee> NewEmployeeAsync(Employee newEmployee)
     {
-        this._repoLayer = new ProjectOneRepoLayer();
+        Employee employee = await this._repoLayer.NewEmployeeAsync(newEmployee);
+        return employee;
     }
-
-
-    // this is a business layer Entity, the instance of the Business layer. Using this to call the method
-    //It is using "Private" because it is protecting from calling it from outside this class
-    //"Readonly  because it cant be changed
 
     public async Task<List<Ticket>> TicketsAsync(int status)
     {

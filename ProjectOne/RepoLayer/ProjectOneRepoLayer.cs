@@ -31,6 +31,36 @@ public class ProjectOneRepoLayer
             return null;
         }
     }
+    /// <summary>
+    /// #2 Register a new account
+    /// </summary>
+    /// <param name="newEmployee"></param>
+    /// <returns></returns>
+    public async Task<Employee> NewEmployeeAsync(Employee newEmployee)
+    {
+        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        using (SqlCommand command = new SqlCommand($"UPDATE Employees SET EmployeeID = @id, UserName = @user, FirstName = @fname, LastName = @lname, IsManager = @manager, Password = @pass WHERE UserName = @user IF @@ROWCOUNT = 0 INSERT INTO Employees (EmployeeID, UserName, FirstName, LastName, IsManager, Password) VALUES(@id, @user, @fname, @lname, @manager, @pass)", conn1))
+        {
+            command.Parameters.AddWithValue("@id", newEmployee.EmployeeID);
+            command.Parameters.AddWithValue("@user", newEmployee.UserName);
+            command.Parameters.AddWithValue("@fname", newEmployee.FirstName);
+            command.Parameters.AddWithValue("@lname", newEmployee.LastName);
+            command.Parameters.AddWithValue("@manager", newEmployee.IsManager);
+            command.Parameters.AddWithValue("@pass", newEmployee.Password);
+
+            conn1.Open();
+
+            int ret = await command.ExecuteNonQueryAsync();
+
+            if (ret > 0)
+            {
+                return newEmployee;
+            }
+            conn1.Close();
+            return null;
+        }
+        
+    }
     public async Task<List<Ticket>> TicketsAsync(int status)
     {
         // made a connection wusing Sql connection class
@@ -126,6 +156,8 @@ public class ProjectOneRepoLayer
 
         
     }
-  
+
+
+
 }
 

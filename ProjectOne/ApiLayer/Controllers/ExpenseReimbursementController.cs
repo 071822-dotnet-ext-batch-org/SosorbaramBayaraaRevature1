@@ -1,6 +1,7 @@
 ﻿using BusinessLayer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Models;
 using ModelsLayer;
 
 namespace ProjectOneWebAPI.Controllers
@@ -13,7 +14,7 @@ namespace ProjectOneWebAPI.Controllers
                                                                  // this is a business layer Entity, the instance of the Business layer. Using this to call the method
                                                                  //It is using "Private" because it is protecting from calling it from outside this class
                                                                  //"Readonly  because it cant be changed
-        public ExpenseReimbursementController() // making reimbursement business layer
+        public ExpenseReimbursementController() 
         {
             this._businessLayer = new ProjectOneBusinessLayer();
         }
@@ -33,8 +34,26 @@ namespace ProjectOneWebAPI.Controllers
                 return Ok(loginDto);
             }
             else return Conflict(login);
-            //List<LoginDto> loginList = await this._businessLayer.LoginAsync
         }
+        /// <summary>
+        /// #2 New Account registration (Must ensure the username is not already registered & Default employee role)
+        /// </summary>
+        /// <param name="newEmployee"></param>
+        /// <returns></returns>
+        [HttpPost("Register a New Account")]
+        public async Task<ActionResult<List<Employee>>> NewEmployeeAsync(Employee newEmployee)
+        {
+            if (ModelState.IsValid)
+            {
+                Employee employee = await this._businessLayer.NewEmployeeAsync(newEmployee);
+                return Ok(employee);
+            }
+            else return Conflict(newEmployee);
+        }
+
+        //ttpPost("Submitting tickets")]
+        //blic async Task<ActionResult<List<Ticket>>> NewTicketAsync(Ticket newTicket
+          
 
 
         //get all rtickets   
