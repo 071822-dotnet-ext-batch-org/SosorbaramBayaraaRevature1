@@ -51,24 +51,28 @@ namespace ProjectOneWebAPI.Controllers
             else return Conflict(newEmployee);
         }
 
-        //ttpPost("Submitting tickets")]
-        //blic async Task<ActionResult<List<Ticket>>> NewTicketAsync(Ticket newTicket
-          
 
-
-        //get all rtickets   
-        [HttpGet("Tickets")] //get all of a type request
-        //.[HttpGet("TicketsAsync/{id?}/{status?}")] //FIGURE OUT HOW TO STRUCTURE THE QUERY SO THAT OTHE OPTIONAL VALUES ARE INDEED OPTIONAL
-        //[HttpGet("TicketsAsync/{id}")]
-        public async Task<ActionResult<List<Ticket>>> TicketsAsync(int status, Guid? id)
+       /// <summary>
+       /// #3 Submit a New Ticket
+       /// </summary>
+       /// <param name="newTicket"></param>
+       /// <returns></returns>       
+       [HttpPut("Submitting tickets")]
+       public async Task<ActionResult<List<Ticket>>> NewTicketAsync(Ticket newTicket)
         {
-            List<Ticket> ticketList = await this._businessLayer.TicketsAsync(status); //its in the bussiness Layer, because BusinessLayer deals with all the logics. Due to seperation concern, leave minimum logic as possible
-            return Ok(ticketList); //returns 200
-            //return null;
-            //0=pending, 1=Aprroved, 2=Denied
-
+            if (ModelState.IsValid)
+            {
+                Ticket ticket = await this._businessLayer.NewTicketAsync(newTicket);
+                return Ok(ticket);
+            }
+            else return Conflict(newTicket);
         }
-
+        
+         /// <summary>
+         /// #4 Updating Status
+         /// </summary>
+         /// <param name="approval"></param>
+         /// <returns></returns>         
         [HttpPut("Updating Status as a manager")]
         public async Task<ActionResult<UpdatedTicketDto>> TicketStatusAsync(ApprovalDto approval) //it waa called Jimmy on Marks demo because "TicketStatus" can be called anything, but keep it consistant
         {
@@ -80,6 +84,24 @@ namespace ProjectOneWebAPI.Controllers
             }
             else return Conflict(approval);    //StatusCode(StatusCodes.Status409Conflict); 
         }
+
+
+        /// <summary>
+        /// See tickets by status   
+        /// </summary>
+        /// <param name="status"></param>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("Tickets")] //get all of a type request
+        public async Task<ActionResult<List<Ticket>>> TicketsAsync(int status, Guid? id)
+        {
+            List<Ticket> ticketList = await this._businessLayer.TicketsAsync(status); //its in the bussiness Layer, because BusinessLayer deals with all the logics. Due to seperation concern, leave minimum logic as possible
+            return Ok(ticketList); //returns 200
+            //return null;
+            //0=pending, 1=Aprroved, 2=Denied
+
+        }
+
 
     }
 }

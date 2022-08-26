@@ -27,6 +27,7 @@ public class ProjectOneBusinessLayer
         LoginDto list = await this._repoLayer.LoginAsync(loginDto);
         return loginDto;
     }
+
     /// <summary>
     /// #2 Register a new account
     /// </summary>
@@ -38,12 +39,22 @@ public class ProjectOneBusinessLayer
         return employee;
     }
 
-    public async Task<List<Ticket>> TicketsAsync(int status)
+    /// <summary>
+    /// #3 Submit a New Ticket
+    /// </summary>
+    /// <param name="newTicket"></param>
+    /// <returns></returns>
+    public async Task<Ticket> NewTicketAsync(Ticket newTicket)
     {
-        List<Ticket> list = await this._repoLayer.TicketsAsync(status);
-        return list;
+        Ticket ticket = await this._repoLayer.NewTicketAsync(newTicket);
+        return ticket;
     }
 
+    /// <summary>
+    /// #4 Updating ticket status
+    /// </summary>
+    /// <param name="approvalDto"></param>
+    /// <returns></returns>
     public async Task<UpdatedTicketDto> UpdateTicketAsync(ApprovalDto approvalDto)  
     {
         if (await this._repoLayer.IsManagerAsync(approvalDto.EmployeeID)) //to see if this employee is a manager, if not its failed
@@ -52,6 +63,16 @@ public class ProjectOneBusinessLayer
             return approvedTicket;
         }
         else return null;
+    }
+    /// <summary>
+    /// #5 See tickets by status
+    /// </summary>
+    /// <param name="status"></param>
+    /// <returns></returns>
+    public async Task<List<Ticket>> TicketsAsync(int status)
+    {
+        List<Ticket> list = await this._repoLayer.TicketsAsync(status);
+        return list;
     }
 
 }
