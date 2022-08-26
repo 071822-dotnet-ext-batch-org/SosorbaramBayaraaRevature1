@@ -61,28 +61,38 @@ public class ProjectOneRepoLayer
         }
         
     }
-    public async Task<List<Ticket>> TicketsAsync(int status)
+    
+    /// <summary>
+    /// #3 Adding New Ticket
+    /// </summary>
+    /// <param name="newTicket"></param>
+    /// <returns></returns>
+    public async Task<Ticket> NewTicketAsync(Ticket newTicket)
     {
-        // made a connection wusing Sql connection class
         SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-        using (SqlCommand command = new SqlCommand($"SELECT * FROM Tickets WHERE Status = @status", conn1)) //created a command using the query and the connection string,
+        using (SqlCommand command = new SqlCommand($"INSERT INTO Tickets (TicketID, FK_EmployeeID, Description, Amount, Status) VALUES (@tid, @eid, @d, @a, @s);", conn1))
         {
-            command.Parameters.AddWithValue("@status", status); //I gave parameter to the command
-            conn1.Open();                                   // opening connection
-            SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)
-            List<Ticket> tList = new List<Ticket>(); //creating list as empty list naming it tList
+            command.Parameters.AddWithValue("@tid", newTicket.TicketID);
+            command.Parameters.AddWithValue("@eid", newTicket.FK_EmployeeID);
+            command.Parameters.AddWithValue("@d", newTicket.Description);
+            command.Parameters.AddWithValue("@a", newTicket.Amount);
+            command.Parameters.AddWithValue("@s", newTicket.Status);
 
-            while (ret.Read()) //advances to the first row
+            conn1.Open();
+
+            int ret = await command.ExecuteNonQueryAsync();
+
+            if (ret == 1)
             {
-                Ticket t = new Ticket((Guid)ret[0], (Guid)ret[1], ret.GetString(2), ret.GetDecimal(3), ret.GetInt32(4));
-                tList.Add(t);
+                return newTicket;
             }
             conn1.Close();
-            return tList;
+            return null;
         }
     }
+    
     /// <summary>
-    /// 
+    /// #4 Updating ticket status
     /// </summary>
     /// <param name="employeeID"></param>
     /// <param name="status"></param>
@@ -107,16 +117,18 @@ public class ProjectOneRepoLayer
                 //call the UpdatedRequestByID(). this method will use a join to return the Employee name along with the relevant details and return a DTO so that
                 // the FE can display the updated data to the user
                 UpdatedTicketDto urbi = await this.UpdatedTicketByIDAsync(ticketID);
-
-
-                
+               
                 return urbi;
             }
             conn1.Close();
             return null;
         }
     }
-
+    /// <summary>
+    /// #4 Ticket status updated by ID
+    /// </summary>
+    /// <param name="ticketID"></param>
+    /// <returns></returns>
     private async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
     {
         SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
@@ -135,7 +147,11 @@ public class ProjectOneRepoLayer
             return null;
         }
     }
-
+    /// <summary>
+    /// #4 Confirms if the ID is a manager ID
+    /// </summary>
+    /// <param name="employeeID"></param>
+    /// <returns></returns>
     public async Task<bool> IsManagerAsync(Guid employeeID)
     {
             // made a connection wusing Sql connection class
@@ -152,11 +168,34 @@ public class ProjectOneRepoLayer
                 }
                 conn1.Close();
                 return false;
-            }
-
-        
+            }   
     }
 
+    /// <summary>
+    /// #5 See tickets by status
+    /// </summary>
+    /// <param name="status"></param>
+    /// <returns></returns>
+    public async Task<List<Ticket>> TicketsAsync(int status)
+    {
+        // made a connection wusing Sql connection class
+        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        using (SqlCommand command = new SqlCommand($"SELECT * FROM Tickets WHERE Status = @status", conn1)) //created a command using the query and the connection string,
+        {
+            command.Parameters.AddWithValue("@status", status); //I gave parameter to the command
+            conn1.Open();                                   // opening connection
+            SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)
+            List<Ticket> tList = new List<Ticket>(); //creating list as empty list naming it tList
+
+            while (ret.Read()) //advances to the first row
+            {
+                Ticket t = new Ticket((Guid)ret[0], (Guid)ret[1], ret.GetString(2), ret.GetDecimal(3), ret.GetInt32(4));
+                tList.Add(t);
+            }
+            conn1.Close();
+            return tList;
+        }
+    }
 
 
 }
