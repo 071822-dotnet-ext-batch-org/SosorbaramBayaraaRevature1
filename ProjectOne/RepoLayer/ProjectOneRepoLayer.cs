@@ -5,7 +5,7 @@ using System.Numerics;
 
 namespace RepoLayer;
 
-public class ProjectOneRepoLayer
+public class ProjectOneRepoLayer : IProjectOneRepoLayer
 {
     /// <summary>
     /// #1 Login
@@ -59,9 +59,9 @@ public class ProjectOneRepoLayer
             conn1.Close();
             return null;
         }
-        
+
     }
-    
+
     /// <summary>
     /// #3 Adding New Ticket
     /// </summary>
@@ -90,7 +90,7 @@ public class ProjectOneRepoLayer
             return null;
         }
     }
-    
+
     /// <summary>
     /// #4 Updating ticket status
     /// </summary>
@@ -117,7 +117,7 @@ public class ProjectOneRepoLayer
                 //call the UpdatedRequestByID(). this method will use a join to return the Employee name along with the relevant details and return a DTO so that
                 // the FE can display the updated data to the user
                 UpdatedTicketDto urbi = await this.UpdatedTicketByIDAsync(ticketID);
-               
+
                 return urbi;
             }
             conn1.Close();
@@ -137,7 +137,7 @@ public class ProjectOneRepoLayer
             command.Parameters.AddWithValue("@ticketID", ticketID); //I gave parameter to the command
             conn1.Open();                                   // opening connection
             SqlDataReader? ret = await command.ExecuteReaderAsync(); //Using ? because what if it returns nothing
-            if (ret.Read()) 
+            if (ret.Read())
             {
                 UpdatedTicketDto t = new UpdatedTicketDto(ret.GetGuid(0), ret.GetString(1), ret.GetString(2), ret.GetInt32(3));
                 conn1.Close();
@@ -154,21 +154,21 @@ public class ProjectOneRepoLayer
     /// <returns></returns>
     public async Task<bool> IsManagerAsync(Guid employeeID)
     {
-            // made a connection wusing Sql connection class
-            SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
-            using (SqlCommand command = new SqlCommand($"SELECT IsManager FROM Employees WHERE EmployeeID = @id", conn1)) //created a command using the query and the connection string,
+        // made a connection wusing Sql connection class
+        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        using (SqlCommand command = new SqlCommand($"SELECT IsManager FROM Employees WHERE EmployeeID = @id", conn1)) //created a command using the query and the connection string,
+        {
+            command.Parameters.AddWithValue("@id", employeeID); //I gave parameter to the command
+            conn1.Open();                                   // opening connection
+            SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)  
+            if (ret.Read() && ret.GetBoolean(0)) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
             {
-                command.Parameters.AddWithValue("@id", employeeID); //I gave parameter to the command
-                conn1.Open();                                   // opening connection
-                SqlDataReader? ret = await command.ExecuteReaderAsync(); //Reding data from the db, (read only)  
-                if (ret.Read() && ret.GetBoolean(0)) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
-                {
-                    conn1.Close();
-                    return true;
-                }
                 conn1.Close();
-                return false;
-            }   
+                return true;
+            }
+            conn1.Close();
+            return false;
+        }
     }
 
     /// <summary>
