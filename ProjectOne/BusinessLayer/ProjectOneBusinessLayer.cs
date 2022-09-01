@@ -3,7 +3,7 @@ using ModelsLayer;
 using RepoLayer;
 
 namespace BusinessLayer;
-public class ProjectOneBusinessLayer
+public class ProjectOneBusinessLayer : IProjectOneBusinessLayer
 {
     // "_businessLayer" naming convention for private local variables. 
     // this is a business layer Entity, the instance of the Business layer. Using this to call the method
@@ -11,12 +11,12 @@ public class ProjectOneBusinessLayer
     //"Readonly  because it cant be changed
 
     private readonly ProjectOneRepoLayer _repoLayer;
-    public  ProjectOneBusinessLayer()
+    public ProjectOneBusinessLayer()
     {
         this._repoLayer = new ProjectOneRepoLayer();
     }
 
-    
+
     /// <summary>
     /// #1 Login
     /// </summary>
@@ -55,7 +55,7 @@ public class ProjectOneBusinessLayer
     /// </summary>
     /// <param name="approvalDto"></param>
     /// <returns></returns>
-    public async Task<UpdatedTicketDto> UpdateTicketAsync(ApprovalDto approvalDto)  
+    public async Task<UpdatedTicketDto> UpdateTicketAsync(ApprovalDto approvalDto)
     {
         if (await this._repoLayer.IsManagerAsync(approvalDto.EmployeeID)) //to see if this employee is a manager, if not its failed
         {

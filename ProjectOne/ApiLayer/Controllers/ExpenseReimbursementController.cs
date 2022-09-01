@@ -10,13 +10,13 @@ namespace ProjectOneWebAPI.Controllers
     [ApiController]
     public class ExpenseReimbursementController : ControllerBase
     {
-        private readonly ProjectOneBusinessLayer _businessLayer; // "_businessLayer" naming convention for private local variables. 
+        private readonly IProjectOneBusinessLayer _businessLayer; // "_businessLayer" naming convention for private local variables. 
                                                                  // this is a business layer Entity, the instance of the Business layer. Using this to call the method
                                                                  //It is using "Private" because it is protecting from calling it from outside this class
                                                                  //"Readonly  because it cant be changed
-        public ExpenseReimbursementController() 
+        public ExpenseReimbursementController(IProjectOneBusinessLayer projectOneBusinessLayer) 
         {
-            this._businessLayer = new ProjectOneBusinessLayer();
+            this._businessLayer = projectOneBusinessLayer;
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace ProjectOneWebAPI.Controllers
 
 
         /// <summary>
-        /// See tickets by status   
+        /// #5 See tickets by status   
         /// </summary>
         /// <param name="status"></param>
         /// <param name="id"></param>

@@ -52,7 +52,7 @@ public class ProjectOneRepoLayer
 
             int ret = await command.ExecuteNonQueryAsync();
 
-            if (ret > 0)
+            if (ret > 0) //has to be 1 because if it is 0 it wont return anything
             {
                 return newEmployee;
             }
@@ -106,8 +106,8 @@ public class ProjectOneRepoLayer
             command.Parameters.AddWithValue("@id", ticketID); //I gave parameter to the command
             command.Parameters.AddWithValue("@status", status);
             conn1.Open();                                   // opening connection
-            int ret = await command.ExecuteNonQueryAsync(); //.ExecuteNonQuery
-            if (ret == 1) //advances to the first row  // if it is false "Not a manager" then quit, if it is true then true
+            int ret = await command.ExecuteNonQueryAsync(); //.ExecuteNonQuery sends raw SQL data to Db
+            if (ret == 1)  // if it is false "Not a manager" then quit, if it is true then true
             {
                 conn1.Close();
                 //Call the request by ID()
