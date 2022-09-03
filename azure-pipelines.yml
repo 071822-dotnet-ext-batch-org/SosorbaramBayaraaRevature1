@@ -3,32 +3,107 @@
 # Add steps that publish symbols, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
 
-trigger:
-- main
+#trigger:
+#- main
+
+# this pipepline will only trigger when any change on the
+# pah ProjectOne/ProjectOne in main branch occurs
+pr: none
+trigger: 
+  branches:
+    include:
+    - main
+  paths:
+    include:
+    - ProjectOne/P1Pipline
 
 pool:
   vmImage: 'windows-latest'
 
+# any value you use more than once should be a variable
 variables:
-  solution: '**/*.sln'
+  solution: 'ProjectOne/P1Pipeline/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  workingDirectry: ProjectOne/P1Pipline
 
-steps:
-- task: NuGetToolInstaller@1
+stages:
+- stage: prep
+  jobs:
+  - job: sdk_and_nuget_dowload #no space
+    displayName: dowload the most current SDK
+    steps:
+    - task: UseDotNet@2
+      displayName: get the sdk
+      inputs:
+        packageType: 'sdk'
+        version: '6.x'
+    - task: NuGetToolInstaller@1
+      inputs:
+       versionSpec: 
+       checkLatest: true
+    - task: SonarCloudPrepare@1
+      inputs:
+        SonarCloud: 'ProjectOneSonarCloud'
+        organization: 'sambayaraa'
+        scannerMode: 'MSBuild'
+        projectKey: 'sambayaraa_TestPipline'
+        projectName: 'TestPipline'
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
+#this is the build stage
+- stage: build
+  jobs:
+  - job: job1
+    steps:
+    - task: NuGetCommand@2
+      displayName: restore_the_app 
+      inputs: 
+        command: 'restore'
+        restoreSolution: '$(solution)'
+    - task: DotNetCoreCLI@2
+      displayName: build_the_app
+      inputs:
+        command: 'build'
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration) --collect"code coverage"'
+        workingDirectory: '$(workingDirectory)'
+    - task: DotNetCoreCLI@2
+      inputs:
+        command: 'test'
+        projects: '$(solution)'
+        arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+        testRunTitle: 'Dotnet testing in progress'
+        workingDirectory: '$(workingDirectory)'
+    - task: PublishCodeCoverageResults@1
+      inputs:
+        codeCoverageTool: 'Cobertura'
+        summaryFileLocation: '**/Coberture/Coverage.xml' # this will send it to sonarcloud
+          #failIfCoverageEmpty: true
+    - task: SonarCloudAnalyze@1
+#Testing tasks go there
+#- task: VSBuild@1
+#    solution: '$(solution)'
+#   msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+#   platform: '$(buildPlatform)'
+ #   configuration: '$(buildConfiguration)'
 
-- task: VSBuild@1
-  inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+      
+    - task: SonarCloudPublish@1
+      inputs:
+       pollingTimeoutSec: '300'
+    - task: DotNetCoreCLI@2
+      displayName: publishing_task
+      inputs:
+        command: 'publish'
+        publishWebProjects: true
+        workingDirectory: '$(workingDirectory)'
+        projects: $(solution)
+        zipAfterPublish: 
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    
+#testing taks go there
+
+#- task: VSTest@2
+#  inputs:
+#   platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
