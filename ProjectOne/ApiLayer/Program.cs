@@ -1,4 +1,5 @@
 using BusinessLayer;
+using RepoLayer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProjectOneBusinessLayer, ProjectOneBusinessLayer>();
+builder.Services.AddScoped<IProjectOneRepoLayer, ProjectOneRepoLayer>();
 
 var app = builder.Build();
 
