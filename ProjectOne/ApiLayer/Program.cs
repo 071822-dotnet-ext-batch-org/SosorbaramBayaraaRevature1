@@ -11,10 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IProjectOneBusinessLayer, ProjectOneBusinessLayer>();
 builder.Services.AddScoped<IProjectOneRepoLayer, ProjectOneRepoLayer>();
-
+string v = builder.Configuration["ConnectionStrings:ProjectOneDb"];
+// Configure the HTTP request pipeline.
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

@@ -10,10 +10,10 @@ public class ProjectOneBusinessLayer : IProjectOneBusinessLayer
     //It is using "Private" because it is protecting from calling it from outside this class
     //"Readonly  because it cant be changed
 
-    private readonly ProjectOneRepoLayer _repoLayer;
-    public ProjectOneBusinessLayer()
+    private readonly IProjectOneRepoLayer _repoLayer;
+    public ProjectOneBusinessLayer(IProjectOneRepoLayer projectOneRepoLayer)
     {
-        this._repoLayer = new ProjectOneRepoLayer();
+        this._repoLayer = projectOneRepoLayer;
     }
 
 
