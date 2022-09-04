@@ -35,6 +35,7 @@ stages:
     displayName: download the most current SDK
     steps:
     - task: UseDotNet@2
+      displayName: get the sdk
       inputs:
         packageType: 'sdk'
         version: '6.x'
@@ -62,6 +63,7 @@ stages:
           command: 'restore'
           restoreSolution: '$(solution)'
       - task: DotNetCoreCLI@2
+        displayName: buil_the_app 
         inputs:
           command: 'build'
           projects: '$(solution)' # making variable 
