@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Microsoft.Extensions.Configuration;
+using Models;
 using ModelsLayer;
 using System.Data.SqlClient;
 using System.Numerics;
@@ -7,6 +8,12 @@ namespace RepoLayer;
 
 public class ProjectOneRepoLayer : IProjectOneRepoLayer
 {
+    private readonly IConfiguration _dbconnection;
+    public ProjectOneRepoLayer(IConfiguration x)
+    {
+        this._dbconnection = x;
+    }
+
     /// <summary>
     /// #1 Login
     /// </summary>
@@ -14,7 +21,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// <returns></returns>
     public async Task<LoginDto> LoginAsync(LoginDto login)
     {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"SELECT UserName, Password FROM Employees WHERE UserName = @username AND Password = @password", conn1))
         {
             command.Parameters.AddWithValue("@username", login.UserName);
@@ -38,7 +45,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// <returns></returns>
     public async Task<Employee> NewEmployeeAsync(Employee newEmployee)
     {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"UPDATE Employees SET EmployeeID = @id, UserName = @user, FirstName = @fname, LastName = @lname, IsManager = @manager, Password = @pass WHERE UserName = @user IF @@ROWCOUNT = 0 INSERT INTO Employees (EmployeeID, UserName, FirstName, LastName, IsManager, Password) VALUES(@id, @user, @fname, @lname, @manager, @pass)", conn1))
         {
             command.Parameters.AddWithValue("@id", newEmployee.EmployeeID);
@@ -69,7 +76,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// <returns></returns>
     public async Task<Ticket> NewTicketAsync(Ticket newTicket)
     {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"INSERT INTO Tickets (TicketID, FK_EmployeeID, Description, Amount, Status) VALUES (@tid, @eid, @d, @a, @s);", conn1))
         {
             command.Parameters.AddWithValue("@tid", newTicket.TicketID);
@@ -100,7 +107,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// <exception cref="NotImplementedException"></exception>
     public async Task<UpdatedTicketDto> UpdateTicketAsync(Guid ticketID, int status)
     {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"UPDATE Tickets SET Status = @status WHERE TicketID = @id", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@id", ticketID); //I gave parameter to the command
@@ -131,7 +138,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// <returns></returns>
     private async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
     {
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@ticketID", ticketID); //I gave parameter to the command
@@ -155,7 +162,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     public async Task<bool> IsManagerAsync(Guid employeeID)
     {
         // made a connection wusing Sql connection class
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"SELECT IsManager FROM Employees WHERE EmployeeID = @id", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@id", employeeID); //I gave parameter to the command
@@ -179,7 +186,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     public async Task<List<Ticket>> TicketsAsync(int status)
     {
         // made a connection wusing Sql connection class
-        SqlConnection conn1 = new SqlConnection("Server=tcp:revature.database.windows.net,1433;Initial Catalog=Project1;Persist Security Info=False;User ID=samRevature;Password=Hulanlove23;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+        SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"SELECT * FROM Tickets WHERE Status = @status", conn1)) //created a command using the query and the connection string,
         {
             command.Parameters.AddWithValue("@status", status); //I gave parameter to the command
