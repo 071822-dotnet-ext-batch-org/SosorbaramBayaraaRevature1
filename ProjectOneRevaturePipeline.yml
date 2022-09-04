@@ -97,6 +97,10 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/cobertura/coverage.xml' # this will grab the yaml file and send it to sonarcloud
  #       failIfCoverageEmpty: true
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: '$(solution)'
     - task: SonarCloudAnalyze@1
       
 # publish the app
