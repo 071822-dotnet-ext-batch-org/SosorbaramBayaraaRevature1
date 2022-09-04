@@ -54,7 +54,7 @@ stages:
 
 # build stage
 - stage: build
-  dependsOn:
+  dependsOn: prep
 #jobs run in parallel
   jobs:
     - job: job1
@@ -96,7 +96,7 @@ stages:
       inputs:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/cobertura/coverage.xml' # this will grab the yaml file and send it to sonarcloud
-        #failIfCoverageEmpty: true
+        failIfCoverageEmpty: true
     - task: SonarCloudAnalyze@1
       
 # publish the app
