@@ -19,8 +19,9 @@ trigger:
       - SosorbaramBayaraaRevature1/ProjectOne
 
 pool:
-  vmImage: 'windows-latest'
-
+  vmImage: 'windows-latest' #agent virtual machine
+#DRY! - any value you use more than once should be a variable
+# the path
 variables:
   solution: 'SosorbaramBayaraaRevature1/ProjectOne/*.sln' # telling yaml where to look for sln file
   buildPlatform: 'Any CPU'
@@ -79,6 +80,11 @@ stages:
      #     configuration: '$(buildConfiguration)'
 
 # testing tasks go here
+- stage: test
+  dependsOn: build
+  jobs:
+  - job: test_the_app
+    steps: 
       - task: DotNetCoreCLI@2
         inputs:
           command: 'test'
@@ -89,8 +95,8 @@ stages:
       - task: PublishCodeCoverageResults@1
         inputs:
           codeCoverageTool: 'Cobertura'
-          summaryFileLocation: '**/cobertura/coverage.xml'
-          # failIfCoverageEmpty: true
+          summaryFileLocation: '**/cobertura/coverage.xml' # this will grab the yaml file and send it to sonarcloud
+          failIfCoverageEmpty: true
       - task: SonarCloudAnalyze@1
       
 # publish the app
@@ -100,6 +106,11 @@ stages:
 #   - job: publish_the_app
 #     steps:
 # publishing is optional but allows you to decorate the PRs later
+- stage: publish
+  dependsOn: build
+  jobs:
+    - job: publish_the_app
+      steps:   
       - task: SonarCloudPublish@1
         inputs:
           pollingTimeoutSec: '300'
