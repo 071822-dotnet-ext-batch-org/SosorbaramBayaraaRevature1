@@ -107,7 +107,7 @@ stages:
 #     steps:
 # publishing is optional but allows you to decorate the PRs later
 - stage: publish
-  dependsOn: build
+  dependsOn: test
   jobs:
     - job: publish_the_app
       steps:   
