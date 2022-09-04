@@ -53,24 +53,24 @@ stages:
         projectName: 'ProjectOne'
 
 # build stage
-#- stage: build
-#  dependsOn: prep
-  # jobs run in parallel
- # jobs:
-  #  - job: job1
-   #   steps:
-    - task: NuGetCommand@2
-      displayName: restore_the_app
-      inputs:
-        command: 'restore'
-        restoreSolution: '$(solution)'
-    - task: DotNetCoreCLI@2
-      displayName: buil_the_app 
-      inputs:
-        command: 'build'
-        projects: '$(solution)' # making variable 
-        arguments: '--configuration $(buildConfiguration)'
-        workingDirectory: '$(workingDirectory)'
+- stage: build
+  dependsOn: prep
+#jobs run in parallel
+  jobs:
+    - job: job1
+      steps:
+      - task: NuGetCommand@2
+        displayName: restore_the_app
+        inputs:
+          command: 'restore'
+          restoreSolution: '$(solution)'
+      - task: DotNetCoreCLI@2
+        displayName: buil_the_app 
+        inputs:
+          command: 'build'
+          projects: '$(solution)' # making variable 
+          arguments: '--configuration $(buildConfiguration)'
+          workingDirectory: '$(workingDirectory)'
 
      # - task: VSBuild@1
      #   inputs:
@@ -80,11 +80,11 @@ stages:
      #     configuration: '$(buildConfiguration)'
 
 # testing tasks go here
-#- stage: test
- # dependsOn: build
-  #jobs:
-  #- job: test_the_app
-   # steps: 
+- stage: test
+  dependsOn: build
+  jobs:
+  - job: test_the_app
+    steps: 
     - task: DotNetCoreCLI@2
       inputs:
         command: 'test'
@@ -100,28 +100,28 @@ stages:
     - task: SonarCloudAnalyze@1
       
 # publish the app
-      # - stage: publish
+# - stage: publish
 #   dependsOn: test
 #   jobs:
 #   - job: publish_the_app
 #     steps:
 # publishing is optional but allows you to decorate the PRs later
-#- stage: publish
-#  dependsOn: test
-#  jobs:
-#    - job: publish_the_app
-#      steps:   
-    - task: SonarCloudPublish@1
-      inputs:
-        pollingTimeoutSec: '300'
-    - task: DotNetCoreCLI@2
-      displayName: publishing_task
-      inputs:
-        command: 'publish'
-        publishWebProjects: true
-        workingDirectory: '$(workingDirectory)'
-        projects: $(solution)
-        zipAfterPublish: true
+- stage: publish
+  dependsOn: test
+  jobs:
+    - job: publish_the_app
+      steps:   
+      - task: SonarCloudPublish@1
+        inputs:
+          pollingTimeoutSec: '300'
+      - task: DotNetCoreCLI@2
+        displayName: publishing_task
+        inputs:
+          command: 'publish'
+          publishWebProjects: true
+          workingDirectory: '$(workingDirectory)'
+          projects: $(solution)
+          zipAfterPublish: true
 
        # - stage: deploy
 #   jobs:
