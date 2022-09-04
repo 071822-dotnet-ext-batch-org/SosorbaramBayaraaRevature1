@@ -46,11 +46,11 @@ stages:
         checkLatest: true
     - task: SonarCloudPrepare@1
       inputs:
-        SonarCloud: 'ProjectOne'
-        organization: 'projectonesambayaraa'
+        SonarCloud: 'RevatureP1Pipe'
+        organization: 'sosorbaram048'
         scannerMode: 'MSBuild'
-        projectKey: 'ProjectOneSamBayaraa_ProjectOne'
-        projectName: 'ProjectOne'
+        projectKey: 'sosorbaram048_PorjectOnePipelineRevatureAccount'
+        projectName: 'PorjectOnePipelineRevatureAccount'
 
 # build stage
 - stage: build
