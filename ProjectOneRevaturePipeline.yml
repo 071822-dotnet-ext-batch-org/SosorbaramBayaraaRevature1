@@ -72,7 +72,6 @@ stages:
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
-      - task: SonarCloudAnalyze@1
      # - task: VSBuild@1
      #   inputs:
      #     solution: '$(solution)'
@@ -98,6 +97,7 @@ stages:
         codeCoverageTool: 'Cobertura'
         summaryFileLocation: '**/cobertura/coverage.xml' # this will grab the yaml file and send it to sonarcloud
  #       failIfCoverageEmpty: true
+    - task: SonarCloudAnalyze@1
       
 # publish the app
 # - stage: publish
