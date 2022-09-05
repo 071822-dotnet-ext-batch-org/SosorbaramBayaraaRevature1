@@ -35,15 +35,17 @@ stages:
   - job: sdk_and_nuget_download # can't have a space here 
     displayName: download the most current SDK
     steps:
+  
     - task: UseDotNet@2
       displayName: get_the_sdk
       inputs:
-        packageType: 'sdk'
+        packageType: 'runtime'
         version: '6.x'
     - task: NuGetToolInstaller@1
       inputs:
         versionSpec:
         checkLatest: true
+      
     - task: SonarCloudPrepare@1
       inputs:
         SonarCloud: 'RevatureP1Pipe'
