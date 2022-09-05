@@ -61,6 +61,11 @@ stages:
   jobs:
     - job: job1
       steps:
+      - task: NuGetCommand@2
+        displayName: restore_the_app
+        inputs:
+          command: 'restore'
+          restoreSolution: '$(solution)'
       #- task: UseDotNet@2
        # inputs:
         #  version: '5.0.x'
