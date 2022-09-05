@@ -35,17 +35,7 @@ stages:
   - job: sdk_and_nuget_download # can't have a space here 
     displayName: download the most current SDK
     steps:
-
-   - task: UseDotNet@2
-    inputs:
-    version: '5.0.x'
-    includePreviewVersions: true # Required for preview versions
-
-    - task: UseDotNet@2
-      inputs:
-    version: '3.0.x'
-    packageType: runtime 
-
+  
     - task: UseDotNet@2
       displayName: get_the_sdk
       inputs:
@@ -71,6 +61,15 @@ stages:
   jobs:
     - job: job1
       steps:
+      - task: UseDotNet@2
+        inputs:
+          version: '5.0.x'
+          includePreviewVersions: true # Required for preview versions
+
+      - task: UseDotNet@2
+        inputs:
+          version: '3.0.x'
+          packageType: runtime
       - task: NuGetCommand@2
         displayName: restore_the_app
         inputs:
