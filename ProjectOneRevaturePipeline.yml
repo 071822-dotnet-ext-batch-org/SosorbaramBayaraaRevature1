@@ -68,7 +68,7 @@ stages:
         displayName: buil_the_app 
         inputs:
           command: 'build'
-          projects: '$(solution)' # making variable 
+          projects: 'SosorbaramBayaraaRevature1/ProjectOne/ProjectOne.sln' # making variable 
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
