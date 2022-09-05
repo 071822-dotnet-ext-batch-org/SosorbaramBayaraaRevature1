@@ -36,9 +36,21 @@ namespace Tests.ProjectOne
             throw new NotImplementedException();
         }
 
+    /// <summary>
+    /// creates a fake UpdatedTicketDto and returns it
+    /// </summary>
+    /// <param name="ticketID"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+        public Task<UpdatedTicketDto> UpdateTicketByIDAsync(Guid ticketID)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<UpdatedTicketDto> UpdateTicketAsync(Guid ticketID, int status)
         {
             throw new NotImplementedException();
         }
+
     }
 }

@@ -136,7 +136,7 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
     /// </summary>
     /// <param name="ticketID"></param>
     /// <returns></returns>
-    private async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
+    public async Task<UpdatedTicketDto> UpdatedTicketByIDAsync(Guid ticketID)
     {
         SqlConnection conn1 = new SqlConnection(_dbconnection["ConnectionStrings:ProjectOneDb"]);
         using (SqlCommand command = new SqlCommand($"SELECT TicketID, FirstName, LastName, Status FROM [dbo].[Employees] LEFT JOIN Tickets ON EmployeeID = FK_EmployeeID WHERE TicketID = @ticketID", conn1)) //created a command using the query and the connection string,

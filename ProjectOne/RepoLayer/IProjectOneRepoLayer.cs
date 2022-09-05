@@ -11,5 +11,6 @@ namespace RepoLayer
         Task<Ticket> NewTicketAsync(Ticket newTicket);
         Task<List<Ticket>> TicketsAsync(int status);
         Task<UpdatedTicketDto> UpdateTicketAsync(Guid ticketID, int status);
+        Task<UpdatedTicketDto> UpdateTicketByIDAsync(Guid ticketID);
     }
 }
