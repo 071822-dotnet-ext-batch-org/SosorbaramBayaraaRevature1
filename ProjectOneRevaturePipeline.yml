@@ -39,7 +39,7 @@ stages:
     - task: UseDotNet@2
       displayName: get_the_sdk
       inputs:
-        packageType: 'runtime'
+        packageType: 'sdk'
         version: '6.x'
     - task: NuGetToolInstaller@1
       inputs:
