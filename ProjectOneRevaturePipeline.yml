@@ -23,10 +23,10 @@ pool:
 #DRY! - any value you use more than once should be a variable
 # the path
 variables:
-  solution: 'SosorbaramBayaraaRevature1/ProjectOne/ProjectOne.sln' # telling yaml where to look for sln file
+  solution: 'SosorbaramBayaraaRevature1/ProjectOne/*.sln' # telling yaml where to look for sln file
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  workingDirectory: SosorbaramBayaraaRevature1/ProjectOne/
+  workingDirectory: SosorbaramBayaraaRevature1/ProjectOne
 
 #stages run sequentially
 stages:
@@ -68,7 +68,7 @@ stages:
         displayName: buil_the_app 
         inputs:
           command: 'build'
-          projects: 'SosorbaramBayaraaRevature1/ProjectOne/ProjectOne.sln' # making variable 
+          projects: '$(solution)' # making variable 
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
