@@ -68,7 +68,7 @@ stages:
         displayName: buil_the_app 
         inputs:
           command: 'build'
-          projects: '**/*.csproj' # making variable 
+          projects: '$(solution)' # making variable 
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
