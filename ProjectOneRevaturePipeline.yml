@@ -65,11 +65,7 @@ stages:
       - task: NuGetToolInstaller@1
         inputs:
           versionSpec: 
-      - task: NuGetCommand@2
-        displayName: restore_the_app
-        inputs:
-          command: 'restore'
-          restoreSolution: '$(solution)'
+      
       #- task: UseDotNet@2
        # displayName: 'Install .NET Runtime'
        # inputs:
@@ -93,7 +89,7 @@ stages:
         displayName: buil_the_app 
         inputs:
           command: 'build'
-          projects: '$(solution)' # making variable 
+          projects: '**/*.csproj' # making variable 
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
