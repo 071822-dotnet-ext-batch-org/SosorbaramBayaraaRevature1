@@ -62,6 +62,15 @@ stages:
   jobs:
     - job: job1
       steps:
+      - task: DotNetCoreCLI@2
+        displayName: 'dotnet publish'
+        inputs:
+          command: publish
+          publishWebProjects: false
+          projects: '**/*.csproj'
+          arguments: '-o testpath'
+          zipAfterPublish: false
+          modifyOutputPath: true
       - task: NuGetCommand@2
         displayName: restore_the_app
         inputs:
