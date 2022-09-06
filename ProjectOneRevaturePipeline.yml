@@ -42,10 +42,6 @@ stages:
         packageType: 'sdk'
         version: '6.x'
         
-    - task: NuGetToolInstaller@1
-      inputs:
-        versionSpec:
-        checkLatest: true
       
     - task: SonarCloudPrepare@1
       inputs:
@@ -62,6 +58,10 @@ stages:
   jobs:
     - job: job1
       steps:
+      - task: NuGetToolInstaller@1
+        inputs:
+          versionSpec:
+          checkLatest: true
       - task: NuGetCommand@2
         displayName: restore_the_app
         inputs:
