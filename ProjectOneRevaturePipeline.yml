@@ -62,34 +62,16 @@ stages:
   jobs:
     - job: job1
       steps:
-      - task: NuGetToolInstaller@1
+      - task: NuGetCommand@2
+        displayName: restore_the_app
         inputs:
-          versionSpec: 
-      
-      #- task: UseDotNet@2
-       # displayName: 'Install .NET Runtime'
-       # inputs:
-        #  packageType: 'runtime'
-         # version: '5.x' 
-
-      #- task: UseDotNet@2
-       # inputs:
-        #  version: '5.0.x'
-         # includePreviewVersions: true # Required for preview versions
-
-  #    - task: UseDotNet@2
-   #     inputs:
-    #      version: '3.0.x'
-     #     packageType: runtime
-      ## displayName: restore_the_app
-        #inputs:
-         # command: 'restore'
-          #restoreSolution: '$(solution)'
+          command: 'restore'
+          restoreSolution: '$(solution)'
       - task: DotNetCoreCLI@2
         displayName: buil_the_app 
         inputs:
           command: 'build'
-          projects: '**/*.csproj' # making variable 
+          projects: '$(solution)' # making variable 
           arguments: '--configuration $(buildConfiguration)'
           workingDirectory: '$(workingDirectory)'
 
