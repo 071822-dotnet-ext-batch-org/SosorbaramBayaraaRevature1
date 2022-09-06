@@ -40,7 +40,7 @@ stages:
       displayName: get_the_sdk
       inputs:
         packageType: 'sdk'
-        version: '6.x'
+        version: '5.x'
         
     - task: NuGetToolInstaller@1
       inputs:
@@ -67,11 +67,11 @@ stages:
         inputs:
           command: 'restore'
           restoreSolution: '$(solution)'
-      - task: UseDotNet@2
-        displayName: 'Install .NET Runtime'
-        inputs:
-          packageType: 'runtime'
-          version: '5.x' 
+      #- task: UseDotNet@2
+       # displayName: 'Install .NET Runtime'
+       # inputs:
+        #  packageType: 'runtime'
+         # version: '5.x' 
 
       #- task: UseDotNet@2
        # inputs:
