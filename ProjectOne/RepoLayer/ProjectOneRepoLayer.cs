@@ -204,6 +204,9 @@ public class ProjectOneRepoLayer : IProjectOneRepoLayer
         }
     }
 
-
+    public Task<UpdatedTicketDto> UpdateTicketByIDAsync(Guid ticketID)
+    {
+        throw new NotImplementedException();
+    }
 }
 
