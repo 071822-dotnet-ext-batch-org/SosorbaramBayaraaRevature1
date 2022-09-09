@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ApiLayer",
+    "\\ApiLayer\\Controllers",
+    "\\BusinessLayer",
+    "\\Models",
+    "\\ProjectOne",
+    "\\RepoLayer"
   ],
+  "SelectedNode": "\\ApiLayer\\ProjectOneWebAPI.csproj.user",
   "PreviewInSolutionExplorer": false
 }
