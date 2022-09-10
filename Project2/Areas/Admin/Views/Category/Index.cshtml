@@ -1,0 +1,33 @@
+﻿@model DataAccessLayer.ViewModels.CategoryVM
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ProductName</th>
+            <th>DisplayOrder</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.categories) {
+         <tr>
+                <td>@item.ProductName</td>
+                <td>@item.DisplayOrder</td>
+           
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { productId = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new {  productId = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new {  productId = item.ProductId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
