@@ -1,0 +1,18 @@
+[
+  {
+    "Id": 1,
+    "Name": "Running"
+  },
+  {
+    "Id": 2,
+    "Name": "Lifestyle"
+  },
+  {
+    "Id": 3,
+    "Name": "Basketball"
+  },
+  {
+    "Id": 4,
+    "Name": "Training"
+  }
+]
