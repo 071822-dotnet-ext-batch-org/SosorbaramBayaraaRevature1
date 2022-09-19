@@ -1,0 +1,26 @@
+[
+  {
+    "Id": 1,
+    "Name": "Nike"
+  },
+  {
+    "Id": 2,
+    "Name": "Adidas"
+  },
+  {
+    "Id": 3,
+    "Name": "Reebok"
+  },
+  {
+    "Id": 4,
+    "Name": "Puma"
+  },
+  {
+    "Id": 5,
+    "Name": "NewBalance"
+  },
+  {
+    "Id": 6,
+    "Name": "UnderArmor"
+  }
+]
